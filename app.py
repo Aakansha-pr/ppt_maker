@@ -144,7 +144,7 @@ if(user_input):
                           file_name = 'ppt.html',
                           mime = 'text/html'):
              st.success("PPT Downloaded Successfully!!")
-          except Exception as err:
-            st.error("Error code:",err)
+        except Exception as err:
+          st.error("Error code:",err)
 
 
