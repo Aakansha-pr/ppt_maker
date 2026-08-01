@@ -106,7 +106,7 @@ user_input = st.text_area("Write Prompt & click Enter")
 
 if(user_input):
   with tab1:
-    if st.button("Click to Generate Image", key = 'Image-Button'):
+    if st.button("Click to Generate Image", key = "Image-Button"):
       with st.spinner("Running Agent"):
         try:
           url = generate_image(user_input)
@@ -117,7 +117,7 @@ if(user_input):
           st.error("Error Code:",err)
 
   with tab2:
-   if st.button("Click to Generate Image", key = 'Image-Button'):
+   if st.button("Fetch Latest News", key = 'News-Button'):
       with st.spinner("Running Agent"):
         try:
           prompt = """Give latest news related to given user query
