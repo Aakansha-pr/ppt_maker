@@ -11,6 +11,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+st.set_page_config(layout = 'wide')
 #==================Step 2: LOAD ENV & API - KEYS===================
 st.title('Your Agentic PPT Generator')
 st.header("""User can generate PPTs, Images and fetch Latest news""")
@@ -103,7 +104,7 @@ tab1,tab2,tab3 = st.tabs(["Generate Image","Fetch News","Generate PPTs"])
 
 user_input = st.text_area("Write Prompt & click Enter")
 
-if(user_input) & (leader_agent):
+if(user_input):
   with tab1:
     if st.button("Click to Generate Image", key = 'Image-Button'):
       with st.spinner("Running Agent"):
@@ -122,7 +123,8 @@ if(user_input) & (leader_agent):
           prompt = """Give latest news related to given user query
           in Dynamic HTML output with cards design format.
           Strict HTML output, no any markdown response
-          User query:""" user_input
+          User query:""" 
+          user_input
 
           response = leader_agent.invoke({'messages': [{'role':'user','content':prompt}]})
           code = response['messages'][-1].content[-1]['text']
